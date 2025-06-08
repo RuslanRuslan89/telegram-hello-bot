@@ -1,8 +1,9 @@
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, CallbackContext
+import os
 
-# Вставь сюда токен, который получишь от @BotFather
-TELEGRAM_BOT_TOKEN = "7423756548:AAErpLCCmAcRRe6gt_CCYds2q9ekVnqEOww"
+# Получаем токен из переменной среды
+TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 
 def start(update: Update, context: CallbackContext):
     update.message.reply_text("Привет! Я - Hello Bot.\n"
@@ -14,8 +15,10 @@ def help_command(update: Update, context: CallbackContext):
                               "/help - помощь")
 
 def main():
+    if not TELEGRAM_BOT_TOKEN:
+        raise ValueError("Не установлен токен бота. Установите переменную среды TELEGRAM_BOT_TOKEN.")
+    
     updater = Updater(TELEGRAM_BOT_TOKEN)
-
     dispatcher = updater.dispatcher
 
     dispatcher.add_handler(CommandHandler("start", start))
@@ -26,4 +29,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
