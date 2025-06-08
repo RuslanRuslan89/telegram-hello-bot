@@ -1,0 +1,10 @@
+{
+  "build": {
+    "env": {
+      "PYTHON_VERSION": "3.10"
+    }
+  },
+  "run": {
+    "cmd": ["python", "bot.py"]
+  }
+}
