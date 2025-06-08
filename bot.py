@@ -2,7 +2,7 @@ from telegram import Update
 from telegram.ext import Updater, CommandHandler, CallbackContext
 
 # Вставь сюда токен, который получишь от @BotFather
-TELEGRAM_BOT_TOKEN = "ВАШ_ТОКЕН_ОТ_BOTFATHER"
+TELEGRAM_BOT_TOKEN = "7423756548:AAErpLCCmAcRRe6gt_CCYds2q9ekVnqEOww"
 
 def start(update: Update, context: CallbackContext):
     update.message.reply_text("Привет! Я - Hello Bot.\n"
